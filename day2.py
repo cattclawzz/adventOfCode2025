@@ -17,7 +17,7 @@ def part2(input):
         for i in range(int(rng[0]),int(rng[1])+1):
             j = str(i)
             k = len(j)//2
-            if any([''.join(j.split(j[:x])) == '' for x in range(1,k)]):
+            if any([''.join(j.split(j[:x])) == '' for x in range(1,k+1)]):
                 password += i
     return password
 
