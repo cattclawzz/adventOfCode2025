@@ -23,5 +23,25 @@ def part1(input):
 			print((a * 10) + pivot)
 		
 	return joltage
+
+def listToInt(listZ):
+	return sum([reversed(listZ)[i] * (10**i) for i in range(len(listZ)-1)])
+
+def part2(input):
+	total = 0
+	for line in input:
+		a = []
+		b = line
+		c = []
+		while (len(c) + len(b)) != 12:
+			x = b[len(c) + len(b) - 11]
+			a = b[:x] 
+			b = b[x:]
+			a = a[a.index(max(a))]
+			b = a[1:] + b
+			c.append(a[0])
+		total += listToInt(sum(c + b))
+	return total
+
 	
-print(f"Part 1: {part1(input)}")
+print(f"Part 1: {part1(input)} \Part 2: {part2(input)}")
